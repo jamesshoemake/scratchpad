@@ -1,14 +1,11 @@
-import './App.css'
-import SearchRotatedSortedArray from './components/BinarySearch/SearchRotatedSortedArray'
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <SearchRotatedSortedArray />
-      </header>
+      <header className="App-header"></header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
