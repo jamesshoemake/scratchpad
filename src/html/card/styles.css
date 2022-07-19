@@ -1,0 +1,38 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+.cardContainer {
+  padding: 0.5em;
+}
+
+.card {
+  font-size: 1em;
+  color: #fff;
+  width: 15em;
+  height: 10em;
+  padding: 0.125em;
+
+  border-radius: 1em;
+}
+
+.bgcolorblack {
+  background-color: #000;
+}
+
+.bgcolorgray {
+  background-color: gray;
+}
+
+.textCenter {
+  text-align: center;
+  font-size: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
