@@ -1,7 +1,7 @@
 // sequential colloection follows first in first out (FIFO) principle
 // ordered tasks such as callback queue in JS runtime, Printers, CPU task scheduling
 
-class Queue {
+export class Queue {
   constructor() {
     this.items = []
   }

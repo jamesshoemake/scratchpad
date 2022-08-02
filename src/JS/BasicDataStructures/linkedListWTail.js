@@ -2,16 +2,17 @@
 // each node has value and link to next node
 // insertion, deletion, search
 // stacks and queues: image viewer continuous slide show
-export class Node {
+class Node {
   constructor(value) {
     this.value = value
     this.next = null
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = null
+    this.tail = null
     this.size = 0
   }
 
@@ -57,10 +58,13 @@ class LinkedList {
   prepend(value) {
     const node = new Node(value)
 
-    if (!this.isEmpty()) {
+    if (this.isEmpty()) {
+      this.head = node
+      this.tail = node
+    } else {
       node.next = this.head
+      this.head = node
     }
-    this.head = node
     this.size++
   }
 
@@ -70,14 +74,42 @@ class LinkedList {
 
     if (this.isEmpty()) {
       this.head = node
+      this.tail = node
     } else {
-      let prev = this.head
-      while (prev.next) {
-        prev = prev.next
-      }
-      prev.next = node
+      this.tail.next = node
+      this.tail = node
     }
     this.size++
+  }
+
+  // 0(n)
+  removeFromFront() {
+    if (this.isEmpty()) return null
+
+    const value = this.head.value
+    this.head = this.head.next
+    this.size--
+    return value
+  }
+
+  removeFromEnd() {
+    if (this.isEmpty()) return null
+
+    const value = this.tail.value
+
+    if (this.size === 1) {
+      this.head = null
+      this.tail = null
+    } else {
+      let prev = this.head
+      while (prev.next !== this.tail) {
+        prev = prev.next
+      }
+      prev.next = null
+      this.tail = prev
+    }
+    this.size--
+    return value
   }
 
   // O(n)
@@ -145,6 +177,7 @@ class LinkedList {
   reverse() {
     let prev = null
     let cur = this.head
+    this.tail = this.head
 
     while (cur) {
       let next = cur.next
@@ -156,31 +189,34 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList()
-console.log('isEmpty: ', list.isEmpty())
-console.log('List size: ', list.getSize())
-list.print()
+// const list = new LinkedList()
+// console.log('isEmpty: ', list.isEmpty())
+// console.log('List size: ', list.getSize())
+// list.print()
 
-list.append(10)
-list.print()
+// list.append(10)
+// list.print()
 
-list.append(20)
-list.append(30)
-list.print()
+// list.append(20)
+// list.append(30)
+// list.print()
 
-list.insert(5, 0)
-list.print()
+// list.insert(5, 0)
+// list.print()
 
-list.insert(25, 3)
-list.print()
+// list.insert(25, 3)
+// list.print()
 
-console.log('removed: ', list.removeFrom(3))
-list.print()
+// console.log('removed: ', list.removeFrom(3))
+// list.print()
 
-console.log('remove by value: ', list.removeValue(5))
-list.print()
+// console.log('remove by value: ', list.removeValue(5))
+// list.print()
 
-console.log('Search for 25: ', list.search(25))
+// console.log('Search for 25: ', list.search(25))
 
-list.reverse()
-list.print()
+// list.reverse()
+// list.print()
+
+// console.log('remove from front: ', list.removeFromFront())
+// console.log('remove from End: ', list.removeFromEnd())
