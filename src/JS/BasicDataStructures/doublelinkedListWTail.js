@@ -12,7 +12,7 @@ class Node {
   }
 }
 
-export class LinkedList {
+export class DoublyLinkedList {
   constructor() {
     this.head = null
     this.tail = null
@@ -66,6 +66,7 @@ export class LinkedList {
       this.tail = node
     } else {
       node.next = this.head
+      this.head.prev = node
       this.head = node
     }
     this.size++
@@ -74,12 +75,12 @@ export class LinkedList {
   // O(n)
   append(value) {
     const node = new Node(value)
-
     if (this.isEmpty()) {
       this.head = node
       this.tail = node
     } else {
       this.tail.next = node
+      node.prev = this.tail
       this.tail = node
     }
     this.size++
@@ -99,17 +100,12 @@ export class LinkedList {
     if (this.isEmpty()) return null
 
     const value = this.tail.value
-
     if (this.size === 1) {
       this.head = null
       this.tail = null
     } else {
-      let prev = this.head
-      while (prev.next !== this.tail) {
-        prev = prev.next
-      }
-      prev.next = null
-      this.tail = prev
+      this.tail = this.tail.prev
+      this.tail.next = null
     }
     this.size--
     return value
@@ -135,61 +131,61 @@ export class LinkedList {
     }
   }
 
-  removeFrom(index) {
-    if (index < 0 || index >= this.size) return null
-    console.log(`removing index ${index}`)
-    let removedNode
-    if (index === 0) {
-      removedNode = this.head
-      this.head = this.head.next
-    } else {
-      let prev = this.head
-      for (let i = 0; i < index - 1; i++) {
-        prev = prev.next
-      }
-      removedNode = prev.next
-      prev.next = removedNode.next
-    }
-    this.size--
-    return removedNode.value
-  }
+  // removeFrom(index) {
+  //   if (index < 0 || index >= this.size) return null
+  //   console.log(`removing index ${index}`)
+  //   let removedNode
+  //   if (index === 0) {
+  //     removedNode = this.head
+  //     this.head = this.head.next
+  //   } else {
+  //     let prev = this.head
+  //     for (let i = 0; i < index - 1; i++) {
+  //       prev = prev.next
+  //     }
+  //     removedNode = prev.next
+  //     prev.next = removedNode.next
+  //   }
+  //   this.size--
+  //   return removedNode.value
+  // }
 
   // O(n)
-  removeValue(value) {
-    if (this.isEmpty()) return null
+  // removeValue(value) {
+  //   if (this.isEmpty()) return null
 
-    if (this.head.value === value) {
-      this.head = this.head.next
-      this.size--
-      return value
-    } else {
-      let prev = this.head
-      while (prev.next && prev.next.value !== value) {
-        prev = prev.next
-      }
-      if (prev.next) {
-        const removeNode = prev.next
-        prev.next = removeNode.next
-        this.size--
-        return value
-      }
-      return null
-    }
-  }
+  //   if (this.head.value === value) {
+  //     this.head = this.head.next
+  //     this.size--
+  //     return value
+  //   } else {
+  //     let prev = this.head
+  //     while (prev.next && prev.next.value !== value) {
+  //       prev = prev.next
+  //     }
+  //     if (prev.next) {
+  //       const removeNode = prev.next
+  //       prev.next = removeNode.next
+  //       this.size--
+  //       return value
+  //     }
+  //     return null
+  //   }
+  // }
 
-  reverse() {
-    let prev = null
-    let cur = this.head
-    this.tail = this.head
+  // reverse() {
+  //   let prev = null
+  //   let cur = this.head
+  //   this.tail = this.head
 
-    while (cur) {
-      let next = cur.next
-      cur.next = prev
-      prev = cur
-      cur = next
-    }
-    this.head = prev
-  }
+  //   while (cur) {
+  //     let next = cur.next
+  //     cur.next = prev
+  //     prev = cur
+  //     cur = next
+  //   }
+  //   this.head = prev
+  // }
 }
 
 // const list = new LinkedList()
