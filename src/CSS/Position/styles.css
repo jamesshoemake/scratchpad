@@ -1,0 +1,47 @@
+.parent {
+  background-color: lightblue;
+  padding: 5px;
+  position: relative;
+}
+
+.child {
+  padding: 5px;
+}
+
+.child-one {
+  background-color: lightgreen;
+  /* relative allows postion to change top botom left right 
+    removes element from document flow based on specified value
+    position: relative; 
+    left: 10px;
+  */
+  /* 
+    positions: absolute 
+    -removes element from document flow
+    - adding top, left, right, bottom moves the element inside the parent container. Parent must be positioned with relative absolute, stick, relative, fixed
+    - if there is no positional relative etc parent.. the child element will fall all the way back up to html element
+  */
+  /* position: absolute;
+  top: 10px; */
+  /* 
+    position: fixed;
+    - based on the entire html parent
+    - stay int he same position on all sizes
+  */
+  /* position: fixed;
+  top: 0;
+  right: 0; */
+  /* 
+    position: sticky;
+    - by default its realtive
+    - once at top of page, becomes fixed
+    top: 0;
+    
+  */
+}
+.child-two {
+  background-color: orange;
+}
+.child-three {
+  background-color: pink;
+}
