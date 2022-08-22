@@ -1,0 +1,152 @@
+/* universal selector
+  changes all elements styles
+*/
+* {
+  background-color: gray;
+}
+
+/* Type selector: div, span, p */
+span {
+  background-color: green;
+}
+
+/* class selectors */
+.red {
+  background-color: red;
+}
+
+/* id selector */
+#blue {
+  background-color: blue;
+}
+
+/* only divs with class of red */
+div.yellow {
+  background-color: yellow;
+}
+
+/* only divs with class of red and green-text */
+div.red.green-text {
+  color: lightgreen;
+}
+
+/* multi selectors  */
+span,
+li {
+  color: #fff;
+}
+
+/* select elements inside another element */
+ul li {
+  background-color: green;
+}
+
+/*  child selector
+    looks for any child of type p
+*/
+div span {
+  color: white;
+  background-color: purple;
+}
+
+/* direct child selector 
+    must be a direct child p of the div
+*/
+div > p {
+  background-color: beige;
+}
+
+/* sybling selector  */
+li.red ~ li {
+  background-color: rebeccapurple;
+}
+
+/* sybling next direct selector */
+li.red + li {
+  background-color: aqua;
+}
+
+/* psuedo classes */
+ul li:hover {
+  background-color: aliceblue;
+}
+
+input:focus {
+  background-color: aquamarine;
+}
+
+input:required {
+  background-color: blanchedalmond;
+}
+
+input:checked {
+  margin: 50px;
+}
+
+/* psuedo class selectors based on position */
+li:first-child {
+  background-color: pink;
+}
+
+li:last-child {
+  color: black;
+}
+
+li:nth-child(2n-1) {
+  font-size: 2em;
+}
+
+/* offset starts at 2nd element */
+li:nth-child(2n) {
+  font-size: 3em;
+}
+
+/* span that is only child of parent */
+span:only-child {
+  background-color: burlywood;
+}
+
+span:first-of-type {
+  background-color: blue;
+}
+
+span:last-of-type {
+  color: aliceblue;
+}
+
+/* li:nth-last-child(2) {
+  font-size: 24px;
+} */
+
+li:not(.green) {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div.red::before {
+  content: 'Before';
+  background-color: #fff;
+}
+
+div.red::after {
+  content: 'after';
+  background-color: cyan;
+}
+
+/* attribute selectors */
+[data-red] {
+  background-color: red;
+}
+
+[data-red='true'] {
+  background-color: blue;
+}
+
+/* begin of */
+[data-red^='12'] {
+  background-color: aqua;
+}
+
+/* anything with 23 inside data-red attribute */
+[data-red*='23'] {
+  background-color: aqua;
+}
