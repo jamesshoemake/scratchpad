@@ -1,0 +1,38 @@
+/* box-sizing by default is content-box
+  scales content to width/height 
+
+  border-box scales border/padding to width/height
+*/
+* {
+  box-sizing: border-box;
+}
+
+.div-1 {
+  background-color: hsl(300, 80%, 50%);
+  width: 100px;
+  height: 100px;
+  /* all padding left right top bottom 10px 
+    padding: 10px; 
+
+    padding bottom 
+    padding-bottom: 10px;
+
+    may use top right bottom left trbl
+  */
+  padding: 10px 5px 20px 15px;
+  /* margin uses trbl also and margin-top etc */
+  margin: 50px;
+  border: 20px solid black;
+  /* border-width accepts similar args as padding and margin
+     border-width should come after a border is defined    
+  */
+  border-width: 10px 20px 30px 5px;
+  /* box-sizing: border-box; */
+}
+
+.div-2 {
+  background-color: hsl(200, 80%, 50%);
+  width: 100px;
+  height: 100px;
+  margin: 30px;
+}
