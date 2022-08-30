@@ -6,9 +6,10 @@ function fib(n, memo = {}) {
   if (n === 1 || n === 2) {
     result = 1
   } else {
-    result = fib(n - 1) + fib(n - 2)
+    result = fib(n - 1, memo) + fib(n - 2, memo)
   }
   memo[n] = result
+  console.log(memo)
   return result
 }
 
